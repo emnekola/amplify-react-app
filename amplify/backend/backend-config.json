@@ -1,1 +1,9 @@
-{}
+{
+  "function": {
+    "amplifyreactappd0046e76": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
