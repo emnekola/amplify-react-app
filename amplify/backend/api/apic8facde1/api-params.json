@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/coins",
+            "lambdaFunction": "amplifyreactappd0046e76",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/coins"
+        }
+    ],
+    "resourceName": "apic8facde1",
+    "apiName": "apic8facde1",
+    "functionArns": [
+        {
+            "lambdaFunction": "amplifyreactappd0046e76"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-amplifyreactapp-local-193313-authRole",
+        "unAuthRoleName": "amplify-amplifyreactapp-local-193313-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "amplifyreactappd0046e76",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
