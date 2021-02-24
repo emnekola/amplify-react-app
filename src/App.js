@@ -35,11 +35,25 @@ const [input, updateInput] = useState({ limit: 5, start: 0 });
 const updateInputValues = (type, value) => {
   updateInput({
     ...input
-    , [type]: value });
+    , [type]: value
+  });
 };
 
   return (
     <div className="App">
+
+    <input
+      onChange={e => updateInputValues('limit', e.target.value)}
+      placeholder="Enter a limit"
+    />
+
+    <input
+      placeholder="Enter a starting index"
+      onChange={e => updateInputValues('start', e.target.value)}
+    />
+
+    <button onClick={fetchCoins}>Fetch Coins</button>
+
       {
         coins.map(
           (coin, index) => (
