@@ -7,29 +7,55 @@ import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
+
   // Create coins variable and set to empty array
   const [coins, updateCoins] = useState([]);
 
   // Define function to all API
   const fetchCoins = async () => {
 
-    const { limit, start } = input;
-    // const data = await API.get('cryptoapi', `/coins?limit=${limit}&start=${start}`)
+     try {
+       updateLoading(true);
 
-    const data = await API.get('apic8facde1', '/coins')
-    updateCoins(data.coins);
-  };
+       const { limit, start } = input;
+       const data = await API.get('apic8facde1', `/coins?limit=${limit}&start=${start}`)
+       updateCoins(data.coins);
+
+       updateLoading(false);
+     }
+
+     catch (err) {
+       console.error(err);
+     }
+
+
+   };
+
+  // const fetchCoins = () => {
+  //     updateLoading(true);
+  //
+  //     const { limit, start } = input;
+  //
+  //     API.get('apic8facde1', `/coins?limit=${limit}&start=${start}`)
+  //       .then(response => updateCoins(response.coins));
+  //       .catch(err => console.error(err))
+  //     ;
+  //
+  //     updateLoading(false);
+  //
+  //     //updateLoading(false);
+  // };
 
   // Call fetchCoins function when component loads
   useEffect(
     () => {
-    fetchCoins()
+    fetchCoins();
   }
     , []
   );
 
 // Create additional state to hold user input for limit and start properties
-const [input, updateInput] = useState({ limit: 5, start: 0 });
+const [input, updateInput] = useState({ limit: 10, start: 0 })
 
 // Create a new function to allow users to update the input values
 const updateInputValues = (type, value) => {
@@ -39,22 +65,32 @@ const updateInputValues = (type, value) => {
   });
 };
 
+const [loading, updateLoading] = useState(true);
+
   return (
     <div className="App">
-
-    <input
-      onChange={e => updateInputValues('limit', e.target.value)}
-      placeholder="Enter a limit"
-    />
 
     <input
       placeholder="Enter a starting index"
       onChange={e => updateInputValues('start', e.target.value)}
     />
 
-    <button onClick={fetchCoins}>Fetch Coins</button>
+    <input
+      onChange={e => updateInputValues('limit', e.target.value)}
+      placeholder="Enter a limit"
+    />
+
+    <button
+      onClick={fetchCoins}
+    >
+      Fetch Coins
+    </button>
+
+    {loading && <h2>Loading...</h2>}
+
 
       {
+        !loading &&
         coins.map(
           (coin, index) => (
             <div
