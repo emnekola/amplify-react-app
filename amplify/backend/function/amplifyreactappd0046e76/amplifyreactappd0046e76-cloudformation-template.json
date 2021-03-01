@@ -69,7 +69,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-amplifyreactapp-local-193313-deployment",
-          "S3Key": "amplify-builds/amplifyreactappd0046e76-366c374b433139536c56-build.zip"
+          "S3Key": "amplify-builds/amplifyreactappd0046e76-5a49454a484a45666833-build.zip"
         }
       }
     },

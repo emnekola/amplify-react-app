@@ -7,6 +7,13 @@
                 "open": true
             },
             "policyResourceName": "/coins"
+        },
+        {
+            "name": "/born",
+            "lambdaFunction": "amplifyreactappd0046e76",
+            "privacy": {
+                "open": true
+            }
         }
     ],
     "resourceName": "apic8facde1",
@@ -31,5 +38,6 @@
                 "Arn"
             ]
         }
-    ]
+    ],
+    "uuid": "54600496"
 }
